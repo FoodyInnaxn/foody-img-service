@@ -1,4 +1,6 @@
 name: basic_configuration
+version: "1.0"
+linter: jetbrains/qodana-jvm-community:2023.3
 enabled: true
 checks:
   - name: CodeStyleInspection
