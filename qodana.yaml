@@ -1,2 +1,26 @@
 version: "1.0"
 linter: jetbrains/qodana-jvm-community:2023.3
+
+version: "1.0"
+linter: jetbrains/qodana-jvm-community:2023.3
+include:
+  - name: UnnecessaryLocalVariable
+  - name: CommentedOutCode
+  - name: CodeStyleInspection
+    level: WARN
+  - name: UnusedImportsInspection
+    level: WARN
+  - name: RedundantTypeArgumentsInspection
+    level: WARN
+  - name: UnusedDeclarationInspection
+    level: WARN
+  - name: RedundantSuppressionInspection
+    level: WARN
+  - name: OverlyComplexMethodInspection
+    level: WARN
+  - name: ControlStatementInspection
+    level: WARN
+  - name: MethodMayBeStaticInspection
+    level: WARN
+  - name: NullableProblemsInspection
+    level: WARN
