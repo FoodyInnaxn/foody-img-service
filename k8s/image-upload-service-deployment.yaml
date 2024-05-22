@@ -31,7 +31,7 @@ spec:
             - name: POSTGRES_PASSWORD
               value: admin
             - name: POSTGRES_URL
-              value: jdbc:postgresql://img-db:5432/img-db?enabledTLSProtocols=TLSv1.2
+              value: jdbc:postgresql://img-db.default.svc.cluster.local:5465/img-db?enabledTLSProtocols=TLSv1.2
             - name: POSTGRES_USER
               value: admin
             - name: SPRING_RABBITMQ_HOST

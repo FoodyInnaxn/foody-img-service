@@ -15,5 +15,4 @@ spec:
       targetPort: 8086
   selector:
     io.kompose.service: image-upload-service
-status:
-  loadBalancer: {}
+  type: ClusterIP
