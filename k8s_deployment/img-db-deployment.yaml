@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.31.2 (a92241f79)
   creationTimestamp: null
   labels:
-    io.kompose.service: image-upload-service
-  name: image-upload-service
+    io.kompose.service: img-db
+  name: img-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: image-upload-service
+      io.kompose.service: img-db
   strategy: {}
   template:
     metadata:
@@ -22,25 +22,21 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.network/foody-default: "true"
-        io.kompose.service: image-upload-service
+        io.kompose.service: img-db
     spec:
       containers:
         - env:
-            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
-              value: http://discovery-service:8761/eureka
+            - name: POSTGRES_DB
+              value: img-db
             - name: POSTGRES_PASSWORD
               value: admin
-            - name: POSTGRES_URL
-              value: jdbc:postgresql://img-db.default.svc.cluster.local:5465/img-db?enabledTLSProtocols=TLSv1.2
             - name: POSTGRES_USER
               value: admin
-            - name: SPRING_RABBITMQ_HOST
-              value: rabbitMQ
-          image: innaxn/foody-image-upload-service:testing-latest
-          name: img-microservice
+          image: postgres:latest
+          name: img-db
           ports:
-            - containerPort: 8086
-              hostPort: 8086
+            - containerPort: 5432
+              hostPort: 5465
               protocol: TCP
           resources: {}
       restartPolicy: Always
